@@ -16,19 +16,26 @@ this is how a simple config file looks like:
 you just need to open generate-config.py and modify the parameters as per you need and it will generate a json file which will be used by winafl-tools.py
 
 2. winafl-tools.py - this script takes care of all the work from corpus minimization, running winafl in test mode, generating code coverage files, running multiple instances of winafl in Master/Slave fashion, restarting a crashes core etc.
-  a. A simple use to run gdi fuzzer with 1 master and 7 slave would be following[after you have generated a gdi_config.json from generate_config.py above]:
+
+a. A simple use to run gdi fuzzer with 1 master and 7 slave would be following[after you have generated a gdi_config.json from generate_config.py above]:
     winafl-tools.py --run=run --config=gdi_config.json --core=8
     this will start 1 master and 7 slaves.
-  b. generating code coverage files: following command will generate code coverage:
+ 
+ b. generating code coverage files: following command will generate code coverage:
       winafl-utils.py --coverage=True --config=gdi_settings.json
-  c. restarting a crashes core: following command will restart a core:
+ 
+ c. restarting a crashes core: following command will restart a core:
      winafl-utils.py --restartcore=2 --config=gdi_settings.json
-  d. resuming winafl session[using input dir as "_"]:  following command will change input dir as "-":
+ 
+ d. resuming winafl session[using input dir as "_"]:  following command will change input dir as "-":
      winafl-utils.py --resume=true --config=gdi_settings.json
-  e. if you want to minmise corpus: use following command:
+ 
+ e. if you want to minmise corpus: use following command:
       winafl-utils.py --mincorpus=true --config=gdi_settings.json
-  f. if you want to generate a debug file to make sure winafl and dynamorio instrumentation is working correctly:
+ 
+ f. if you want to generate a debug file to make sure winafl and dynamorio instrumentation is working correctly:
       winafl-utils.py --debuglog=true --debuginput=test.jpeg --config=gdi_settings.json
       
+
 Hope this helps. pull requests and ideas to make it better are always welcome.
       
