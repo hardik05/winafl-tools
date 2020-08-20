@@ -2,7 +2,9 @@
 Tools for winafl
 
 what it is?
-Running winafl is a hell of task in itself. it invloce a large command line and has lot of options. if you want to run winafl, you need to give proper parameter to dynamorio and as well other parameters, if you want to minimise corpus you need to run winafl-cmin with parameter, if you want to generate coverage, you need to run drrun.exe with some parameters and so on. either people write their own batch file or scripts to do it. so i decided to write a single script for all the task. this script internally uses all the scripts like winafl-cmin.py etc to do its job, its just a wrapper for all the commands and scrips. But this makes running winafl very easy.
+
+Running winafl is a hell of task in itself. it involve a large command line and has lot of options. if you want to run winafl, you need to give proper parameter to dynamorio and as well other parameters, if you want to minimise corpus you need to run winafl-cmin with parameter, if you want to generate coverage, you need to run drrun.exe with some parameters and so on. either people write their own batch file or scripts to do it. so i decided to write a single script for all the task. this script internally uses all the scripts like winafl-cmin.py etc to do its job, its just a wrapper for all the commands and scrips. But this makes running winafl very easy.
+
 NOTE: you need to run this script from your winafl\bin32(64) directory.
 
 There are two tools:
@@ -15,7 +17,9 @@ this is how a simple config file looks like:
 
 you just need to open generate-config.py and modify the parameters as per you need and it will generate a json file which will be used by winafl-tools.py
 
+
 2. winafl-tools.py - this script takes care of all the work from corpus minimization, running winafl in test mode, generating code coverage files, running multiple instances of winafl in Master/Slave fashion, restarting a crashes core etc.
+
 
 a. A simple use to run gdi fuzzer with 1 master and 7 slave would be following[after you have generated a gdi_config.json from generate_config.py above]:
     winafl-tools.py --run=run --config=gdi_config.json --core=8
